@@ -13,7 +13,11 @@ import todoRoutes from "./routes/todo.js"
 
 
 const app =express();
-app.use(cors());
+app.use(cors({
+    origin:"http://localhost:5173",
+     methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}));
 app.use(express.json());
 app.use(helmet());
 app.use("/api/user", userRoutes);
